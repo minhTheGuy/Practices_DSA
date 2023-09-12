@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public interface ListInterface<E> {
     public void addFirst(E item);
     public void addAfter(E item, Node<E> curr);
@@ -11,4 +13,6 @@ public interface ListInterface<E> {
     public boolean isEmpty();
     public Node<E> getHead();
     public E getFirst();
+
+    public void removeCurr(Node<E> curr) throws NoSuchElementException;
 }

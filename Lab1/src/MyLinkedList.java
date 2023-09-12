@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class MyLinkedList<E> implements ListInterface<E>{
 
     private Node<E> head;
@@ -98,6 +100,26 @@ public Node<E> getHead() {
 
 public E getFirst() {
         return this.head.getData();
+    }
+
+    public void removeCurr(Node<E> curr) throws NoSuchElementException {
+        if (curr == null) {
+            throw new NoSuchElementException();
+        }
+        if (curr == head) {
+            this.removeFirst();
+        } else {
+            Node<E> prev = this.head;
+            while (prev.getNext() != curr) {
+                prev = prev.getNext();
+            }
+            prev.setNext(curr.getNext());
+            this.size--;
+        }
+    }
+
+    public void setHead(Node<E> head) {
+        this.head = head;
     }
 
 }
