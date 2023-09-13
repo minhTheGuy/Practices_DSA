@@ -1,8 +1,8 @@
 public class FractionEx {
 
     public static class Fraction {
-        private int numerator;
-        private int denominator;
+        private int numerator = 0;
+        private int denominator = 1;
 
         public Fraction(int numerator, int denominator) {
             this.numerator = numerator;
@@ -11,6 +11,18 @@ public class FractionEx {
 
         public String toString() {
             return this.numerator + "/" + this.denominator;
+        }
+        private void simplify() {
+            int gcd = gcd(this.numerator, this.denominator);
+            this.numerator /= gcd;
+            this.denominator /= gcd;
+        }
+
+        private int gcd(int numerator, int denominator) {
+            if (denominator == 0) {
+                return numerator;
+            }
+            return gcd(denominator, numerator % denominator);
         }
 
         public boolean equals(Object o) {
