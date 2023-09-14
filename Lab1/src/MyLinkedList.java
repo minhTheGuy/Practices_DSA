@@ -3,24 +3,24 @@ import java.util.NoSuchElementException;
 public class MyLinkedList<E> implements ListInterface<E>{
 
     private Node<E> head;
-    private int size;
+    private int num_nodes;
     public MyLinkedList() {
         this.head = null;
-        this.size = 0;
+        this.num_nodes = 0;
     }
 
 public void addFirst(E item) {
         Node<E> newNode = new Node<E>(item);
         newNode.setNext(this.head);
         this.head = newNode;
-        this.size++;
+        this.num_nodes++;
     }
 
 public void addAfter(E item, Node<E> curr) {
         Node<E> newNode = new Node<E>(item);
         newNode.setNext(curr.getNext());
         curr.setNext(newNode);
-        this.size++;
+        this.num_nodes++;
     }
 
 public void addLast(E item) {
@@ -34,20 +34,20 @@ public void addLast(E item) {
             }
             curr.setNext(newNode);
         }
-        this.size++;
+        this.num_nodes++;
     }
 
 public void removeFirst() {
         if (this.head != null) {
             this.head = this.head.getNext();
-            this.size--;
+            this.num_nodes--;
         }
     }
 
 public void removeAfter(Node<E> curr) {
         if (curr.getNext() != null) {
             curr.setNext(curr.getNext().getNext());
-            this.size--;
+            this.num_nodes--;
         }
     }
 
@@ -62,12 +62,12 @@ public void removeLast() {
                 }
                 curr.setNext(null);
             }
-            this.size--;
+            this.num_nodes--;
         }
     }
 
 public int size() {
-        return this.size;
+        return this.num_nodes;
     }
 
 public boolean contains(E item) {
@@ -114,7 +114,7 @@ public E getFirst() {
                 prev = prev.getNext();
             }
             prev.setNext(curr.getNext());
-            this.size--;
+            this.num_nodes--;
         }
     }
 
