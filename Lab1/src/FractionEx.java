@@ -44,6 +44,7 @@ public class FractionEx {
         list.addFirst(new Fraction(1, 5));
         list.addFirst(new Fraction(1, 6));
         list.addFirst(new Fraction(1, 7));
+
         list.print();
     }
 }
