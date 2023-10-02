@@ -1,18 +1,23 @@
-public class IntegerLinkedList extends MyLinkedList<Integer> {
-    public static void main(String[] args) {
-        MyLinkedList<Integer> list = new MyLinkedList<Integer>();
-        list.addFirst(1);
-        list.addFirst(2);
-        list.addFirst(3);
-        list.addFirst(4);
-        list.addFirst(5);
-        list.addFirst(6);
-        list.print();
-    }
+package Lab3;
 
-    public static int countEven(MyLinkedList<Integer> list) {
+public class IntegerLinkedList {
+
+    private Node head;
+    private int size;
+
+    public IntegerLinkedList() {
+        this.head = null;
+        this.size = 0;
+    }
+    public void setHead(Node head) {
+        this.head = head;
+    }
+    public Node getHead() {
+        return head;
+    }
+    public int countEven() {
         int count = 0;
-        Node<Integer> curr = list.getHead();
+        Node curr = head;
         while (curr != null) {
             if (curr.getData() % 2 == 0) {
                 count++;
@@ -36,9 +41,9 @@ public class IntegerLinkedList extends MyLinkedList<Integer> {
         return true;
     }
 
-    public static int countPrime(MyLinkedList<Integer> list) {
+    public int countPrime() {
         int count = 0;
-        Node<Integer> curr = list.getHead();
+        Node curr = head;
         while (curr != null) {
             if (isPrime(curr.getData())) {
                 count++;
@@ -48,11 +53,11 @@ public class IntegerLinkedList extends MyLinkedList<Integer> {
         return count;
     }
 
-    public static int addFirstEven(MyLinkedList<Integer> list, int item) {
-        Node<Integer> tmp = list.getHead();
+    public int addFirstEven(int item) {
+        Node tmp = head;
         while (tmp != null) {
             if (tmp.getData() % 2 == 0) {
-                list.addAfter(item, tmp);
+                addAfter(item, tmp);
                 return 1;
             }
             tmp = tmp.getNext();
@@ -60,12 +65,25 @@ public class IntegerLinkedList extends MyLinkedList<Integer> {
         return 0;
     }
 
-    public static int findMax(MyLinkedList<Integer> list) {
-        if (list.isEmpty()) {
+    private void addAfter(int item, Node tmp) {
+        if (tmp == null) return;
+        Node newNode = new Node(item);
+        Node curr = head;
+        while (curr.getNext() != tmp)
+            curr = curr.getNext();
+        curr.setNext(newNode);
+        newNode.setNext(tmp);
+    }
+
+    public boolean isEmpty() {
+        return this.head == null;
+    }
+    public int findMax() {
+        if (isEmpty()) {
             return -1;
         }
-        int max = list.getFirst();
-        Node<Integer> curr = list.getHead();
+        int max = head.getData();
+        Node curr = head;
         while (curr != null) {
             if (curr.getData() > max) {
                 max = curr.getData();
@@ -74,35 +92,12 @@ public class IntegerLinkedList extends MyLinkedList<Integer> {
         }
         return max;
     }
-
-    public static void reverseList(MyLinkedList<Integer> list) {
-        Node<Integer> curr = list.getHead();
-        Node<Integer> prev = null;
-        Node<Integer> next = null;
+    public void print() {
+        Node curr = head;
         while (curr != null) {
-            next = curr.getNext();
-            curr.setNext(prev);
-            prev = curr;
-            curr = next;
-        }
-        list.setHead(prev);
-    }
-
-    public static void sortLinkedList(MyLinkedList<Integer> list) {
-        Node<Integer> curr = list.getHead();
-        Node<Integer> index = null;
-        int tmp;
-        while (curr != null) {
-            index = curr.getNext();
-            while (index != null) {
-                if (curr.getData() > index.getData()) {
-                    tmp = curr.getData();
-                    curr.setData(index.getData());
-                    index.setData(tmp);
-                }
-                index = index.getNext();
-            }
+            System.out.print(curr.getData() + " ");
             curr = curr.getNext();
         }
+        System.out.println();
     }
 }

@@ -1,25 +1,33 @@
 public class Ex6 {
     public static void main(String[] args) {
         int[] arr = {3, 7, 2, -1, 8};
-        System.out.println(minOfArray(arr, arr.length - 1));
-        System.out.println(sumOfAllElement(arr, 0));
-        System.out.println(countEven(arr, 0));
+        System.out.println(minOfArray(arr));
+        System.out.println(sumOfAllElement(arr));
+        System.out.println(countEven(arr));
+
     }
 
-    public static int minOfArray(int[] arr, int n) {
-        
-        if (n == 0) return arr[0];
-        int result = minOfArray(arr, n - 1);
-        return result < arr[n] ? result : arr[n];
+    public static int minOfArray(int[] arr) {
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min)
+                min = arr[i];
+        }
+        return min;
     }
 
-    public static int sumOfAllElement(int[] arr, int index) {
-        if (index == arr.length) return 0;
-        return arr[index] + sumOfAllElement(arr, index + 1);
+    public static int sumOfAllElement(int[] arr) {
+        int sum = 0;
+        for (int num : arr)
+            sum += num;
+        return sum;
     }
 
-    public static int countEven(int[] arr, int index) {
-        if (index == arr.length) return 0;
-        return (arr[index] % 2 == 0 ? 1 : 0) + countEven(arr, index + 1);
+    public static int countEven(int[] arr) {
+        int count = 0;
+        for (int num : arr)
+            if (num % 2 == 0)
+                ++count;
+        return count;
     }
 }

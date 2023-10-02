@@ -1,30 +1,31 @@
-public class Node<E> {
-    private E item;
-    private Node<E> next;
+package Lab3;
+public class Node{
+    private int item;
+    private Node next;
 
-    public Node(E item) {
+    public Node(int item) {
         this.item = item;
         this.next = null;
     }
 
-    public Node(E item, Node<E> next) {
+    public Node(int item, Node next) {
         this.item = item;
         this.next = next;
     }
 
-    public E getData() {
+    public int getData() {
         return this.item;
     }
 
-    public Node<E> getNext() {
+    public Node getNext() {
         return this.next;
     }
 
-    public void setNext(Node<E> next) {
+    public void setNext(Node next) {
         this.next = next;
     }
 
-    public void setData(E data) {
+    public void setData(int data) {
         this.item = data;
     }
 }
