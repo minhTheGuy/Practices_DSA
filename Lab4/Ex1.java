@@ -70,11 +70,6 @@ public class Ex1 {
         swap(arr, j, marker + 1);
         return marker + 1;
     }
-    public static int countEven(int[] arr, int index) {
-        if (index < 0) return 0;
-        if (arr[index] % 2 == 0) return 1 + countEven(arr, index - 1);
-        return countEven(arr, index - 1);
-    }
     public static void bubbleSort(int[] arr) { // sắp xếp nổi bọt
         for (int i = 1; i < arr.length; i++) // vòng for để duyệt từng phần tử của mảng
             for (int j = 0; j < arr.length - i; j++) // vòng for để kiểm tra phần tử 'j' có lớn hơn 'j+1' hay không
