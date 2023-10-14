@@ -1,4 +1,4 @@
-package ex4;
+package ex2;
 
 import java.util.Stack;
 

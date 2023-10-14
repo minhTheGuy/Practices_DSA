@@ -1,4 +1,4 @@
-package ex3;
+package ex2;
 import java.util.*;
 public class Ex3 {
     public static boolean checkPalindrome(int n) {
