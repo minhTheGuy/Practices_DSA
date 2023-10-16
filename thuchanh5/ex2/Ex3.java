@@ -1,4 +1,4 @@
-package ex2;
+
 import java.util.*;
 public class Ex3 {
     public static boolean checkPalindrome(int n) {
@@ -10,13 +10,13 @@ public class Ex3 {
             queue.add(tmp % 10);
             tmp /= 10;
         }
-        while (!stack.isEmpty()) {
-            if (stack.pop() != queue.remove()) return false;
+        while (!stack.isEmpty() && !queue.isEmpty()) {
+            if (stack.pop() != queue.poll()) return false;
         }
         return true;
     }
     public static void main(String[] args) {
-        int n = 12321;
+        int n = 112;
         if (checkPalindrome(n)) System.out.println("Palindrome");
         else System.out.println("Not palindrome");
     }
