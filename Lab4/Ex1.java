@@ -20,7 +20,6 @@ public class Ex1 {
         for (int i : arr4) System.out.print(i + " ");
         System.out.println((double) 8);
         int[] arr6 =  {3, 5, 2, 8, -1};
-        System.out.println(countEven(arr6, arr6.length - 1));
 
     }
     private static void swap(int[] arr, int i, int j) {

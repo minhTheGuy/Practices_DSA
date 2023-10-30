@@ -1,12 +1,16 @@
+package Lab3;
+
 import java.util.*;
 
 public class Ex1 {
     public static void main(String[] args) {
-        System.out.println(factorial_iterative(5));
-        System.out.println(xPowern(2, 0));
-        System.out.println(countDigits(123));
-        System.out.println(isPrime(27));
-        System.out.println(gcd(2, 8));
+//
+//        System.out.println(factorial_iterative(5));
+//        System.out.println(xPowern(2, 0));
+//        System.out.println(countDigits(123));
+//        System.out.println(isPrime(27));
+//        System.out.println(gcd(2, 8));
+    
     }
 
     public static int factorial_iterative(int n) {
