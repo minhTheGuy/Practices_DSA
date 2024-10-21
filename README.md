@@ -1,2 +1,5 @@
-# Practices_DSA
-# THIS IS MY LAB PRACTICES WHILE STUDYING DSA
+# Practices DSA Repository
+- THIS IS MY LAB PRACTICES WHILE STUDYING DSA
+- Programming language: Java
+- IDE: IntelliJ Ultimate
+
